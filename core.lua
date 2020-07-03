@@ -36,6 +36,7 @@ ui_refresh_cfg:SetPosY(364); ui_refresh_cfg:SetWidth(136); ui_refresh_cfg:SetPos
 
 
 callbacks.Register("Draw", "Apply Search", function()
+    if gui.Reference("Menu"):IsActive() == false then return; end;
     temp = {cfg = {}, lua = {},};
     for i, lua in pairs(files.lua) do
         if lua:lower():match(ui_search_lua:GetValue():lower() .. string.format(".*lua$")) ~= nil then
